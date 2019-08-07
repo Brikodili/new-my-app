@@ -1,9 +1,8 @@
 import React, { useReducer, useEffect, useState } from 'react';
-// import { BrowserRouter as Router, Route, Link, Redirect } from 'react-router-dom';
-// import { CookiesProvider, useCookies } from 'react-cookie';
 import currentUserReducer from 'components/App/current-user-reducer';
 import Routes from 'components/Routes';
 import Cookie from 'js-cookie';
+import './style.scss';
 
 import { api } from 'api';
 

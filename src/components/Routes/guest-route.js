@@ -7,9 +7,13 @@ export default function({ component: Component, ...passedProps }) {
   const { state: currentUser } = useContext(CurrentUserContext);
 
   return (
-    <Route {...passedProps} render={(props) => (
-      currentUser ?
-        <Redirect to={{ pathname: '/', state: { from: props.location }}} /> : <Component {...props} />
-    )} />
+    <Route {...passedProps} render={(props) => {
+      const pathname = props.location.state ? props.location.state.from.pathname : '/';
+
+      return (
+        currentUser ?
+          <Redirect to={{ pathname }} /> : <Component {...props} />
+      )}
+    } />
   );
 }
