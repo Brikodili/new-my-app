@@ -8,10 +8,10 @@ export default Yup.object().shape({
     .min(2, 'Too Short!')
     .required('Required'),
   name_customer: Yup.string()
-    .min(2, 'Too Short!')
-    .required('Required'),
+    .min(2, 'Too Short!'),
   email: Yup.string()
     .min(2, 'Too Short!')
+    .email('Invalid email')
     .required('Required'),
   phone: Yup.string()
     .min(2, 'Too Short!')
@@ -19,9 +19,9 @@ export default Yup.object().shape({
   role: Yup.string()
     .required('Required'),
   password: Yup.string()
-    .min(2, 'Too Short!')
+    .min(8, 'Too Short!')
     .required('Required'),
   password_confirmation: Yup.string()
-    .min(2, 'Too Short!')
+    .min(8, 'Too Short!')
     .required('Required'),
 });

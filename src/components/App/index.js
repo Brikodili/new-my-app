@@ -21,6 +21,8 @@ function App() {
       api.get(`/get-user`).then((resp) => {
         dispatch({type: 'SET_CURRENT_USER', payload: resp.data.user });
         setLoading(false)
+      }).catch((error) => {
+        setLoading(false)
       })
     }
   }, []);
@@ -28,6 +30,7 @@ function App() {
   return (
     <CurrentUserContext.Provider value={{dispatch, state}}>
       {loading ? 'Loading...' : <Routes />}
+      {/*<Routes />*/}
     </CurrentUserContext.Provider>
   );
 }

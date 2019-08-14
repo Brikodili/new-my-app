@@ -5,9 +5,11 @@ import Footer from 'components/Footer';
 export default function(props) {
   return (
     <>
-      <Header />
-      {props.children}
-      <Footer />
+      <Header/>
+      <main>
+        {props.children}
+      </main>
+      <Footer/>
     </>
   )
 }

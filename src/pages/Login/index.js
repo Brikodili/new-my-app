@@ -21,11 +21,11 @@ export default function(props) {
   const initialFormValues = {
     email: '',
     password: '',
-  }
+  };
 
   return (
     <Layout>
-      <h1>Signin</h1>
+      <h1 className="title has-text-centered">Login</h1>
       <Formik
         validationSchema={loginValidationSchema}
         initialValues={initialFormValues}
@@ -33,14 +33,23 @@ export default function(props) {
       >
         {({ errors }) => {
           return (
-            <Form>
+            <Form className="form">
               {errors.general}
-              <Field name="email" placeholder="email"/>
-              <ErrorMessage name="email" />
-              <Field name="password" placeholder="password"/>
-              <ErrorMessage name="password" />
-
-              <button type="submit">Submit</button>
+              <div className="field">
+                <label className="label">Email</label>
+                <Field className="input" name="email" placeholder="email"/>
+                <span>
+                  <ErrorMessage name="email" />
+                </span>
+              </div>
+              <div className="field">
+                <label className="label">Password</label>
+                <Field className="input" name="password" placeholder="password"/>
+                <span>
+                  <ErrorMessage name="password" />
+                </span>
+              </div>
+              <button type="submit" className="button">Submit</button>
             </Form>
           )
         }}

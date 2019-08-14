@@ -32,7 +32,7 @@ export default function() {
 
   return (
     <Layout>
-      <h1>Profile</h1>
+      <h1 className="has-text-centered title">Edit Profile</h1>
       <Formik
         // validationSchema={loginValidationSchema}
         initialValues={initialFormValues}

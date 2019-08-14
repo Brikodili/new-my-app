@@ -1,47 +1,62 @@
 import React, {useContext} from 'react';
-import {Link} from 'react-router-dom';
-import Cookie from 'js-cookie';
-import {CurrentUserContext} from 'components/App';
+import { Link } from 'react-router-dom';
+import { CurrentUserContext } from 'components/App';
+import Dropdown from 'components/Dropdown';
 
 export default function (props) {
-  const {state: currentUser, dispatch} = useContext(CurrentUserContext);
-
-  function handleLogout() {
-    Cookie.remove('token');
-    dispatch({type: 'SET_CURRENT_USER', payload: undefined})
-  }
+  const {state: currentUser } = useContext(CurrentUserContext);
 
   return (
-    <div>
-      <h2>{props.title}</h2>
-      <p>{currentUser && currentUser.email}</p>
+    <header>
       <nav>
         {currentUser ? (
           <>
-            <ul>
-              <li>Some Header</li>
-            </ul>
-            <ul>
-              <li><button onClick={handleLogout}>logout</button></li>
-            </ul>
+            <nav className="navbar">
+              <ul className="navbar-menu">
+                <li className="navbar-brand navbar-item">
+                  <Link className="subtitle is-5" to="/">
+                    <strong>Exprts</strong>
+                  </Link>
+                </li>
+                <li className="navbar-item">
+                  <div className="field has-addons">
+                    <p className="control">
+                      <input className="input" type="text" placeholder="Find a post"/>
+                    </p>
+                    <p className="control">
+                      <button className="button">
+                        Search
+                      </button>
+                    </p>
+                  </div>
+                </li>
+              </ul>
+              <ul className="navbar-end">
+                <li className="navbar-item has-text-grey-light">Эксперты</li>
+                <li className="navbar-item"><a href="/">Вопросы</a></li>
+                <li className="navbar-item"><a href="/">О нас</a></li>
+                <li className="navbar-item"><a href="/">Создать проект</a></li>
+              </ul>
+              <Dropdown/>
+            </nav>
           </>
         ) : (
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
+          <ul className="navbar">
+            <li className="navbar-brand navbar-item">
+              <Link className="" to="/">Home</Link>
             </li>
-            <li>
-              <Link to="/registration/">registration</Link>
+            <li className="navbar-item">
+              <Link className="" to="/registration/">Registration</Link>
             </li>
-            <li>
-              <Link to="/login/">login</Link>
+            <li className="navbar-item">
+              <Link className="" to="/login/">Login</Link>
             </li>
-            <li>
-              <Link to="/dashboard/">dashboard</Link>
+            <li className="navbar-item">
+              <Link className="" to="/dashboard/">Dashboard</Link>
             </li>
           </ul>
         )}
       </nav>
-    </div>
+    </header>
   )
 }
