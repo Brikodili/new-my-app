@@ -26,9 +26,9 @@ export default function () {
             </ul>
             <ul className="navbar-end">
               <li className="navbar-item has-text-grey-light">Эксперты</li>
-              <li className="navbar-item"><a href="/">Вопросы</a></li>
-              <li className="navbar-item"><a href="/">О нас</a></li>
-              <li className="navbar-item"><a href="/">Создать проект</a></li>
+              <li className="navbar-item"><a className="has-text-black" href="/">Вопросы</a></li>
+              <li className="navbar-item"><a className="has-text-black" href="/">О нас</a></li>
+              <li className="navbar-item"><a className="has-text-black" href="/">Создать проект</a></li>
             </ul>
             <Dropdown/>
           </nav>
