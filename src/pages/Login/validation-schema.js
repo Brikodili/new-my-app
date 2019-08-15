@@ -6,6 +6,6 @@ export default Yup.object().shape({
     .email('Invalid email')
     .required('Required'),
   password: Yup.string()
-    .min(6, 'Too Short!')
+    .min(8, 'Too Short!')
     .required('Required')
 });

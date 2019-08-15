@@ -7,8 +7,6 @@ export default Yup.object().shape({
   surname: Yup.string()
     .min(2, 'Too Short!')
     .required('Required'),
-  name_customer: Yup.string()
-    .min(2, 'Too Short!'),
   email: Yup.string()
     .min(2, 'Too Short!')
     .email('Invalid email')
@@ -22,6 +20,7 @@ export default Yup.object().shape({
     .min(8, 'Too Short!')
     .required('Required'),
   password_confirmation: Yup.string()
+    .oneOf([Yup.ref('password')], 'Passwords must match')
+    .required('Required')
     .min(8, 'Too Short!')
-    .required('Required'),
 });

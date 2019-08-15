@@ -13,7 +13,7 @@ export default function ({history}) {
         actions.setErrors(resp.data.message)
       }
     })
-  };
+  }
 
   const initialFormValues = {
     name: '',
@@ -50,7 +50,7 @@ export default function ({history}) {
                 <div className="field">
                   <label className="label">Name Customer</label>
                   <Field className="input" name="name_customer" placeholder="name_customer"/>
-                  <ErrorMessage name="role" render={msg => <span className="has-text-danger">{msg}</span>} />
+                  <ErrorMessage name="name_customer" render={msg => <span className="has-text-danger">{msg}</span>} />
                 </div>
                 <div className="field">
                   <label className="label">Email</label>
@@ -78,7 +78,7 @@ export default function ({history}) {
                 <div className="field">
                   <label className="label">Confirm password</label>
                   <Field className="input" type="password" name="password_confirmation" placeholder="password_confirmation"/>
-                  <ErrorMessage name="password_confirm" render={msg => <span className="has-text-danger">{msg}</span>} />
+                  <ErrorMessage name="password_confirmation" render={msg => <span className="has-text-danger">{msg}</span>} />
                 </div>
                 <button type="submit" className="button">Submit</button>
               </Form>

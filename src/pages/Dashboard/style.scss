@@ -11,6 +11,10 @@
     padding: 2rem;
   }
 
+  .media {
+    align-items: center;
+  }
+
   &__title {
     padding-top: 2rem;
   }
@@ -22,10 +26,20 @@
       padding-left: 0.5rem;
     }
   }
-}
+  .filters {
+    padding: 0 2rem;
+    //padding-top: 0;
+    margin-right: 2rem;
+    border-right: 1px solid lightgray;
 
-.media {
-  align-items: center;
+    &__header {
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid lightgray;
+      padding: 0 0 2rem 0;
+      margin: 0 2rem 0 0;
+    }
+  }
 }
 
 .article {
@@ -56,19 +70,5 @@
     strong {
       display: block;
     }
-  }
-}
-
-.filters {
-  padding-top: 0 !important;
-  margin: 0 2rem 0 0;
-  border-right: 1px solid lightgray;
-
-  &__header {
-    align-items: center;
-    justify-content: space-between;
-    border-bottom: 1px solid lightgray;
-    padding: 0 0 2rem 0;
-    margin: 0 2rem 0 0;
   }
 }

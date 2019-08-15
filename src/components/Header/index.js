@@ -1,46 +1,40 @@
 import React, {useContext} from 'react';
-import { Link } from 'react-router-dom';
-import { CurrentUserContext } from 'components/App';
+import {Link} from 'react-router-dom';
+import {CurrentUserContext} from 'components/App';
 import Dropdown from 'components/Dropdown';
+import './style.scss';
 
-export default function (props) {
-  const {state: currentUser } = useContext(CurrentUserContext);
+export default function () {
+  const {state: currentUser} = useContext(CurrentUserContext);
 
   return (
     <header>
-      <nav>
-        {currentUser ? (
-          <>
-            <nav className="navbar">
-              <ul className="navbar-menu">
-                <li className="navbar-brand navbar-item">
-                  <Link className="subtitle is-5" to="/">
-                    <strong>Exprts</strong>
-                  </Link>
-                </li>
-                <li className="navbar-item">
-                  <div className="field has-addons">
-                    <p className="control">
-                      <input className="input" type="text" placeholder="Find a post"/>
-                    </p>
-                    <p className="control">
-                      <button className="button">
-                        Search
-                      </button>
-                    </p>
-                  </div>
-                </li>
-              </ul>
-              <ul className="navbar-end">
-                <li className="navbar-item has-text-grey-light">Эксперты</li>
-                <li className="navbar-item"><a href="/">Вопросы</a></li>
-                <li className="navbar-item"><a href="/">О нас</a></li>
-                <li className="navbar-item"><a href="/">Создать проект</a></li>
-              </ul>
-              <Dropdown/>
-            </nav>
-          </>
-        ) : (
+      {currentUser ? (
+        <>
+          <nav className="navbar nav">
+            <ul className="navbar-menu">
+              <li className="navbar-brand navbar-item">
+                <Link className="subtitle is-5 nav__logo" to="/">
+                  <strong>Exprts</strong>
+                </Link>
+              </li>
+              <li className="navbar-item">
+                <div className="field has-addons">
+                  <input className="input nav__search-input" type="text" placeholder="Find a post"/>
+                </div>
+              </li>
+            </ul>
+            <ul className="navbar-end">
+              <li className="navbar-item has-text-grey-light">Эксперты</li>
+              <li className="navbar-item"><a href="/">Вопросы</a></li>
+              <li className="navbar-item"><a href="/">О нас</a></li>
+              <li className="navbar-item"><a href="/">Создать проект</a></li>
+            </ul>
+            <Dropdown/>
+          </nav>
+        </>
+      ) : (
+        <nav>
           <ul className="navbar">
             <li className="navbar-brand navbar-item">
               <Link className="" to="/">Home</Link>
@@ -55,8 +49,8 @@ export default function (props) {
               <Link className="" to="/dashboard/">Dashboard</Link>
             </li>
           </ul>
-        )}
-      </nav>
+        </nav>
+      )}
     </header>
   )
 }

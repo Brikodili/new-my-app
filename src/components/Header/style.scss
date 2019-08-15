@@ -1,0 +1,11 @@
+.nav {
+  &__logo {
+    padding: 0.5rem 3rem;
+    border-right: 1px solid lightgray;
+  }
+  &__search-input {
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+  }
+}

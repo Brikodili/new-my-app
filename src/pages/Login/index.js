@@ -34,20 +34,16 @@ export default function(props) {
         {({ errors }) => {
           return (
             <Form className="form">
-              {errors.general}
+              <span className="has-text-danger">{errors.general}</span>
               <div className="field">
                 <label className="label">Email</label>
                 <Field className="input" name="email" placeholder="email"/>
-                <span>
-                  <ErrorMessage name="email" />
-                </span>
+                <ErrorMessage name="email" render={msg => <span className="has-text-danger">{msg}</span>} />
               </div>
               <div className="field">
                 <label className="label">Password</label>
-                <Field className="input" name="password" placeholder="password"/>
-                <span>
-                  <ErrorMessage name="password" />
-                </span>
+                <Field className="input" type="password" name="password" placeholder="password"/>
+                <ErrorMessage name="password" render={msg => <span className="has-text-danger">{msg}</span>} />
               </div>
               <button type="submit" className="button">Submit</button>
             </Form>
