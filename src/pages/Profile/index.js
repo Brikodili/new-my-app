@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
-import Layout from 'components/Layout';
 import { ErrorMessage, Field, Form, Formik } from "formik";
+import Layout from 'components/Layout';
 import { CurrentUserContext } from 'components/App';
 import loginValidationSchema from 'pages/Profile/validation-schema';
 
@@ -11,7 +11,6 @@ export default function () {
   const [messageShow, setMessageShow] = useState(false);
 
   function handleSubmit(values, actions) {
-    console.log(values);
     api.post('/edit-user', values).then((resp) => {
       if (resp.data.status) {
         dispatch({type: 'SET_CURRENT_USER', payload: resp.data.user});
@@ -20,8 +19,14 @@ export default function () {
         actions.setErrors(resp.data.message);
       }
     }).catch((error) => {
-      actions.setErrors(error.data.message);
       // Api server doesn`t send error status
+      if (error.data) {
+        actions.setErrors(error.data.message);
+      } else {
+        alert(error.message)
+      }
+    }).finally(() => {
+      actions.setSubmitting(false)
     })
   }
 

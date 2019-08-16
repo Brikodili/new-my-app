@@ -1,8 +1,8 @@
 import React from 'react';
-import {Formik, Form, Field, ErrorMessage} from 'formik';
+import { Formik, Form, Field, ErrorMessage } from 'formik';
 import Layout from 'components/Layout';
 import signUpValidationSchema from 'pages/Registration/validation-schema';
-import {api} from 'api';
+import { api } from 'api';
 
 export default function ({history}) {
   function handleSubmit(values, actions) {
@@ -33,7 +33,7 @@ export default function ({history}) {
         validationSchema={signUpValidationSchema}
         initialValues={initialFormValues}
         onSubmit={handleSubmit}>
-        {() => {
+        {({ isSubmitting }) => {
           return (
             <div>
               <Form className="form">
@@ -80,7 +80,7 @@ export default function ({history}) {
                   <Field className="input" type="password" name="password_confirmation" placeholder="password_confirmation"/>
                   <ErrorMessage name="password_confirmation" render={msg => <span className="has-text-danger">{msg}</span>} />
                 </div>
-                <button type="submit" className="button">Submit</button>
+                <button type="submit" className={`button ${isSubmitting && ' is-loading'}`}>Submit</button>
               </Form>
             </div>
           )

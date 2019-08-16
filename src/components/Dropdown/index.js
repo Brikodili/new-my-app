@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 import './style.scss';
 
-export default function(props) {
+export default function() {
   const { dispatch } = useContext(CurrentUserContext);
   const [dropDownShown, setDropDownShown] = useState(false);
 
@@ -15,9 +15,8 @@ export default function(props) {
 
   function handleLogout() {
     Cookie.remove('token');
-    dispatch({type: 'SET_CURRENT_USER', payload: undefined})
+    dispatch({type: 'CLEAR_CURRENT_USER'})
   }
-
 
   return (
     <div className={dropDownShown ? 'dropdown is-right is-active' : 'dropdown is-right '}>

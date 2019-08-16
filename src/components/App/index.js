@@ -29,8 +29,7 @@ function App() {
 
   return (
     <CurrentUserContext.Provider value={{dispatch, state}}>
-      {loading ? 'Loading...' : <Routes />}
-      {/*<Routes />*/}
+      {loading ? <div className="pageloader is-active"><span className="title">Loading...</span></div> : <Routes />}
     </CurrentUserContext.Provider>
   );
 }

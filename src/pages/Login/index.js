@@ -14,7 +14,8 @@ export default function(props) {
       dispatch({type: 'SET_CURRENT_USER', payload: resp.data.user });
       Cookie.set('token', resp.data.token.split(' ')[1]);
     }).catch((error) => {
-      actions.setErrors({ general: 'Unauthorized' })
+      actions.setErrors({ general: 'Unauthorized' });
+      actions.setSubmitting(false);
     })
   }
 
@@ -31,7 +32,7 @@ export default function(props) {
         initialValues={initialFormValues}
         onSubmit={handleSubmit}
       >
-        {({ errors }) => {
+        {({ errors, isSubmitting }) => {
           return (
             <Form className="form">
               <span className="has-text-danger">{errors.general}</span>
@@ -45,7 +46,7 @@ export default function(props) {
                 <Field className="input" type="password" name="password" placeholder="password"/>
                 <ErrorMessage name="password" render={msg => <span className="has-text-danger">{msg}</span>} />
               </div>
-              <button type="submit" className="button">Submit</button>
+              <button type="submit" className={`button ${isSubmitting && ' is-loading'}`}>Submit</button>
             </Form>
           )
         }}
