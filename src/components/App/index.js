@@ -7,6 +7,7 @@ import './style.scss';
 import { api } from 'api';
 
 export const CurrentUserContext = React.createContext(undefined);
+const hello = 'hello';
 const currentUserInitialState = undefined;
 
 function App() {
